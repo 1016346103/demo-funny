@@ -1,2 +1,3 @@
 A
 newbranch
+master
