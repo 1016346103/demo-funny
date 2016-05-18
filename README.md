@@ -1,3 +1,4 @@
 # git-repository
 zyd's repository.also the first!
-come to practice!
+storage some usefull and funny code that finish by myself!
+come on!
