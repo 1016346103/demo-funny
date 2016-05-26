@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>轮播</title>
+    <style>
+        /*取消默认值，设置自己定义属性*/
+        body, ul, li, p {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type:none;
+        }
+        body {
+            font-family:"Times New Roman", Times, serif;
+        }
+
+        /*设置大小位置等信息*/
+        /*设置轮播地区大小*/
+        #box {
+            position:relative;
+            width:200px;
+            height:200px;
+            margin:10px auto;
+        }
+
+        /*设置所有的图片样式，不显示*/
+        #box .imgList{
+            position:relative;
+            width:200px;
+            height:200px;
+            overflow:hidden;
+        }
+
+        /*设置图片列表位置*/
+        #box .imgList li{
+            position:absolute;
+            top:0;
+            left:0;
+            width:200px;
+            height:200px;
+        }
+
+        /*下方标签所占位置定义*/
+        #box .countNum{
+            position:absolute;
+            right:0;
+            bottom:5px;/*距离下面*/
+        }
+
+        /*标签样式*/
+        #box .countNum li{
+            width:20px;
+            height:20px;
+            float:left;
+            color:#fff;
+            border-radius:20px;
+            background:#f90;
+            text-align:center;
+            margin-right:5px;
+            cursor:pointer;
+            opacity:0.5;
+            /*filter:alpha(opacity=100);/!*IE*!/*/
+        }
+        /*设置被选中按钮的样式，加深。图片为显示*/
+        #box .countNum li .current{
+            background: #000000;
+            font-weight:bold;
+            font-size: 30px;
+            opacity:1;
+            /*filter:alpha(opacity=70);*/
+        }
+    </style>
+    <script>
+        function runImg(){}//存放图片信息
+        runImg.prototype={
+            bigbox:null,//最外层容器box
+            boxul:null,//子容器ul。图片与按钮
+            imglist:null,//ul的子容器img图片列表
+            numlist:null,//ul的子容器countNum按钮列表
+
+            index:0,//当前显示项
+            timer:null,//控制图片转变效果
+            play:null,//控制自动播放
+
+            imgurl:[],//存放图片路径
+            count:0,//图片个数
+
+            //获得obj节点对象
+            $:function(obj)//obj=box
+            {
+                if(typeof(obj)=="string")
+                {
+                    if(obj.indexOf("#")==0)//没有#说明创建节点，有则判断
+                    {   obj=obj.replace("#","");//去掉#
+                        if(document.getElementById(obj))
+                            return document.getElementById(obj);//获得这个节点
+                        else
+                        {   alert("没有容器"+obj);
+                            return null;
+                        }
+                    }
+                    else
+                        return document.createElement(obj);//创建一个节点
+                }
+                else
+                    return obj;
+            },
+
+            //初始化图片信息id=box，count=5,url已知
+            info:function(id)
+            {   this.count=this.count<=5?this.count:5;//若小于5则等于count，否则等于5.最多显示五个
+                this.bigbox=this.$(id);//获得box容器
+                for(var i=0;i<2;i++)//0表示图片，1表示按钮
+                {
+                    var ul=this.$("ul");//创建ul节点2个数组
+                    for(var j=1;j<=this.count;j++)//对图片轮播
+                    {
+                        var li=this.$("li");//创建li节点
+                        li.innerHTML= i==0? this.imgurl[j-1]:j;//如果是图片就是url，如果是标签就是数字J
+                        ul.appendChild(li);//把li插入ul的子节点
+                    }
+                    this.bigbox.appendChild(ul);//把ul插入到box上
+                }
+                this.boxul=this.bigbox.getElementsByTagName("ul");
+                this.boxul[0].className="imgList";
+                this.boxul[1].className="countNum";
+                this.imglist=this.boxul[0].getElementsByTagName("li");
+                this.numlist=this.boxul[1].getElementsByTagName("li");
+                this.numlist[0].className="current";//设置首先显示第一张图片
+            },
+
+            //封装程序入口。id=box
+            action:function(id)
+            {   this.autoplay();//自动播放
+                this.mouseoverout(this.bigbox,this.numlist);//鼠标经过
+            },
+            //图片切换效果透明度递减，num当前图片数字，numlist按钮列表，imglist图片列表
+            imgshow:function(num,numlist,imglist)
+            {
+                var that=this;
+                this.index=num;//当前播放序号
+                var alpha=0;
+                //先把所有的按钮设为空
+                for(var i=0;i<numlist.length;i++)
+                {
+                    numlist[i].className="";
+                }
+                clearInterval(this.timer);
+                numlist[this.index].className="current";
+                for(var j=0;j<imglist.length;j++)
+                {   imglist[j].style.opacity=0;
+                    //imglist[j].style.filter="alpha(opacity=0)";
+                }
+                //利用透明度来实现切换图片
+                this.timer=setInterval(function(){
+                    alpha+=2;
+                    if(alpha>100){alpha=100;}//不能大于100
+                    imglist[that.index].style.opacity=alpha/100;
+                    //imglist[that.index].style.filter="alpha(opacity="+alpha+")";//IE
+                    if(alpha==100){clearInterval(that.timer);}//当等于100的时候就切换完成了
+                },200);//经测试20是我认为最合适的值
+
+            },
+
+            //自动播放。播放序号处理
+            autoplay:function(){
+                var that=this;//this指向box对象
+                this.play=setInterval(function(){//为了便于清除计时器
+                    that.index++;//显示第几张图的序号
+                    if(that.index>that.imglist.length-1){that.index=0;}//到了最后一张图
+                    that.imgshow(that.index,that.numlist,that.imglist);//显示图片
+                },20000);//2000mm换一次序号
+            },
+            //处理鼠标事件
+            mouseoverout:function(box,numlist)
+            {
+                var that=this;
+                box.onmouseover=function()
+                {
+                    clearInterval(that.play);//鼠标经过BOX时清除计时器，暂停动画
+                };
+                box.onmouseout=function()
+                {
+                    that.autoplay(that.index);//鼠标移走时，自动播放
+                };
+                for(var i=0;i<numlist.length;i++)
+                {
+                    numlist[i].index=i;
+                    numlist[i].onmouseover=function(){
+                        that.imgshow(this.index,that.numlist,that.imglist);//移至li上时播放此图片
+                    }
+                }
+            }
+        };
+        window.onload=function(){
+            var runimg=new runImg();
+            runimg.imgurl=[
+                "<img src='zyd1.jpg'/>",
+                "<img src='zyd2.jpg'/>",
+                "<img src='zyd3.jpg'/>",
+                "<img src='zyd1.jpg'/>",
+                "<img src='zyd2.jpg'/>"];//输入轮播的图片路径
+            runimg.count=runimg.imgurl.length;
+            runimg.info("#box");//初始化显示图片按钮信息。box--ul(--li)--li(--li)节点及内容
+            runimg.action("#box");
+        };
+    </script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>
+
