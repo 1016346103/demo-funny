@@ -34,7 +34,7 @@
         //只对非叶子节点进行   父子维护
         for (var i = Math.floor(len / 2) - 1; i >= 0; i--)
             max_heapify(i, len);
-        //依次取出每个大根堆的根节点
+        //依次取出每个大根堆的根节点。
         for (var i = len - 1; i > 0; i--) {
             swap(0, i);
             max_heapify(0, i);
