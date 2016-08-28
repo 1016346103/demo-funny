@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天猫tmall.com--上天猫，就够了</title>
+    <link rel="stylesheet" type="text/css" href="tmal-css/tb-取消默认值.css">
+    <style>
+        dl dd{margin: 0 auto;padding: 0;}
+        a{text-decoration: none;color: inherit;padding: 1em;vertical-align: middle}
+        a:hover{color: #C40000;}
+        div a{padding: 0;}
+        .under dl{display: inline-block;padding-left:50px;padding-right: 96px;position: relative;float: left;width: 100px;}
+        .under dl dt{position: relative;padding-top: 0;color: #8b8b8b;font-weight: 700;}
+        .under dl dt span{font-size: 18px;color: #646464;font-weight: 700;}
+        .under nav div{border-top: 1px white solid; margin: 1px;width: 100%;height: 36px;}
+        .under nav div a{;text-align: center;letter-spacing: 1px;margin: 4px 8px;line-height: 12px;font-size: 12px;}
+        ul li{display: inline;}
+
+        .main-nav div{padding:4px;margin:1px;text-align: center;vertical-align:middle;letter-spacing:0;border-top:1px white solid;line-height: 1em}
+        .main-nav div:hover a{text-decoration: none;color: white;}
+        .main-nav div:hover{background-color: rgba(238, 117, 104,0.5);}
+        .hiddenList{background-color: white;display: none;}
+        .keyList a{padding:4.64px;}
+        .keyList:hover +.hiddenList{display: block;width:96px;height:57px;position: relative;z-index: 1;}
+        .keyList:hover{background-color: white;}
+        .keyList:hover a{text-decoration: none;color: pink;}
+        .searchBody{display: inline;position: relative;margin-left: 100px}
+        .searchBody .searchList a{display: block;}
+
+        .title a{padding: 16px;}
+
+        .point{color: yellow;font-weight: bold;font-size: 18px}
+        .name{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}/*显示字数超出用省略号*/
+
+        .titleImg{margin: 0 auto;width: 100%;display: block;}
+        .imgShow img{display: inline;width: 238px;height: 269px;padding:4px;}
+        .imgMove img:hover{transform: translate(20px 10px);}
+
+        .lunbo ul li{float:left;border-radius:20px;background-color: grey;width: 20px;height: 20px;margin:10px;}
+        .lunbo ul li:hover{background-color: white;}
+
+        .hiddenList dl dd{padding: 10px;border-bottom: 1px dotted grey;}
+
+        .bo{width: 1320px;height: 500px;display: none;}
+        .first{display: block}
+
+        .imgMove img:hover{-webkit-transform: translate(-4px,0);}
+
+        .mov:hover{-webkit-transform: scale(1.1);}
+
+
+    </style>
+</head>
+<body style="background-color:#F2F2F2;" id="top">
+<header style="width: 1230px;line-height:2.5em;margin:0 auto;height: 34px;font-size: 12px;">
+        <div style="display: inline;">
+            <span style="padding-right: 1em">喵，欢迎来天猫</span> <a href="1">请登录</a> <a href="#">免费注册</a>
+        </div>
+        <div style="float: right">
+            <a href="#" class="keyList">我的淘宝</a>
+            <div class="hiddenList">
+                <dl>
+                    <dd>已买到的宝贝</dd>
+                    <dd>已卖出的宝贝</dd>
+                </dl>
+            </div>
+            <a>我关注的品牌</a> <a>购物车0件</a> <a>收藏夹</a> <a>手机版</a> <a>淘宝网</a> <a>企业购</a> <a>商家支持</a> <span>网站导航</span>
+        </div>
+</header>
+<aside style="background-color: black;width:3%;position: fixed;height: 100%;margin-top: -34px;margin-left:1310px;z-index: 1000">
+    <img src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABGAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzA2NyA3OS4xNTc3NDcsIDIwMTUvMDMvMzAtMjM6NDA6NDIgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE1IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowOTFBN0JBMTY1MjQxMUU2QkMwNUFGRjg0NTdCNjcyRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowOTFBN0JBMjY1MjQxMUU2QkMwNUFGRjg0NTdCNjcyRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA5MUE3QjlGNjUyNDExRTZCQzA1QUZGODQ1N0I2NzJFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjA5MUE3QkEwNjUyNDExRTZCQzA1QUZGODQ1N0I2NzJFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQABAMDAwMDBAMDBAYEAwQG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">
+    <img src="tmal-img/hjy/usrPhot.jpg" style="width: 80%;border-radius: 100%;padding: 10%">
+</aside>
+<nav style="background-color:rgba(0, 0, 0, 0.5);position: fixed;width: 40px;margin-top:150px;color: white;z-index: 10001" class="main-nav">
+    <div style="background-color: rgba(196,0,0,0.5);line-height: 2.3em"><a href="">导 航</a></div>
+    <div><a href="#GroceryHealth">居家<br>生活</a></div>
+    <div><a href="#kidsBaby">亲子<br>时光</a></div>
+    <div><a href="#home">打造<br>爱巢</a></div>
+    <div><a href="#fashionBeauty">美丽<br>人生</a></div>
+    <div><a href="#outdoorsOutoMotive">户外<br>出行</a></div>
+    <div><a href="#Electronics">潮电<br>酷玩</a></div>
+    <div><a href="#guessLike">猜你<br>喜欢</a></div>
+    <div style="background-color: rgba(208, 208, 208, 0.5)"><a href="#top"><span style="font-size: 14px;line-height: 1em">^</span><br>顶 部</a></div>
+</nav>
+<div id="search" style="background: white;width:1330px;height: 130px;position: absolute">
+    <img src="tmal-img/foot/tmal-logo.gif" style="width: 240px;height: 130px;display: inline">
+    <div style="position: absolute;width: 625px;height: 100px;left: 50%;top: 50%;margin-top: -50px;margin-left: -312.5px">
+        <div style="position: relative;width: 625px;height:40px;left: 50%;top: 50%;margin-top: -20px;margin-left: -312.5px">
+            <form>
+                <input type="text" style="border: 2px solid #C40000;width: 77%;height: 40px" placeholder="这样穿才显瘦"><button type="submit" style="border: 2px solid #C40000;width: 22%;height: 44px;background: #C40000;color: white;font-size: 18px;font-weight: 700;letter-spacing: 5px;">搜索</button>
+            </form>
+            <ul><li>连衣裙</li> | <li>秋牛仔裤</li> | <li>男小白鞋</li> | <li>平板电脑</li> | <li>纯棉四件套</li> | <li>运动鞋</li> | <li>拉杆箱</li> | <li>书包</li></ul>
+        </div>
+    </div>
+</div>
+<div id="searchList" style="width: 100%;margin-top: 130px;height:600px;">
+    <div style="height: 36px;background: #DD2727;">
+        <div style="height: 36px;color: white;font-weight: bold;font-size: 18px;margin-left: 100px;" class="title">
+            <span style="background: #C40000;width: 200px;color: white;text-align: center;padding:66px 66px 12px 61px;margin-left: -55px">商品分类</span>
+            <a>天猫超市</a>
+            <a>天猫国际</a>
+            <a>品牌街</a>
+            <a>电器城</a>
+            <a>瞄生鲜</a>
+            <a>医药馆</a>
+            <a>营业厅</a>
+            <a>魅力惠</a>
+            <a>阿里旅行</a>
+        </div>
+    </div>
+    <div id="head-body" style="width: 1320px;height: 500px;">
+        <div style="width: 100%;height: 500px;position: absolute;" id="test">
+            <img class="bo first" src="tmal-img/hjy/bg-hjy.jpg">
+            <img class="bo" src="tmal-img/hjy/bg-hjy1.jpg">
+            <img class="bo" src="tmal-img/hjy/bg-hjy3.jpg">
+            <div class="lunbo">
+                <ul style="list-style: circle;position: absolute;left:40%;top:87%;width:300px;height:30px;">
+                    <li id="fir"></li><li id="sec"></li><li id="third"></li>
+                </ul>
+            </div>
+        </div>
+        <div style="width: 200px;margin-left: 45px;float: left;" class="searchBody">
+            <nav class="searchList" style="background-color:rgba(238,234,228, 0.5);font-size: 15px;color: black;position: relative">
+                <div class="keyList"><a> 女装 /内衣</a></div>
+                <div class="hiddenList" style="position: absolute;float: right;height:500px;width: 853px;margin-left:200px;margin-top: -31px;padding: 15px">
+                    <dl>
+                        <dt>当季流行></dt>   <dd>型动女装 女士新品 短袖T恤 时尚套装 女装商场同款 内衣夏季新品
+                        内衣商场同款 睡衣套装 情侣家居服 丝袜</dd>
+                        <dt>精选上装></dt>   <dd>T恤 衬衫 雪纺衫 针织衫 短外套 吊带背心 卫衣 小西装 风衣</dd>
+                        <dt>浪漫裙装></dt>   <dd>连衣裙 蕾丝连衣裙 印花连衣裙 真丝连衣裙 半身裙 百褶裙 牛仔裙
+                        背心裙 a字裙 棉麻连衣裙 蕾丝半身裙 包臀裙 长袖连衣裙</dd>
+                        <dt>女士下装></dt>   <dd>休闲裤 牛仔裤 打底裤 短裤 哈伦裤 背带裤 小脚裤 西装裤 阔腿裤</dd>
+                        <dt>特色女装></dt>   <dd>时尚气质套装 休闲运动套装 妈妈装 夏款大码女装 职业套装 旗袍
+                        礼服 婚纱 唐装</dd>
+                        <dt>文胸塑身></dt>   <dd>聚拢文胸 运动文胸 性感蕾丝 无钢圈 塑身上衣 塑身连体衣</dd>
+                        <dt>家 居 服></dt>   <dd>睡衣 少女家居服 睡袍 居家套装 全棉睡衣 情侣家居服 真丝家居服</dd>
+                        <dt>内裤背心></dt>   <dd>男士内裤 女士内裤 莫代尔内裤 无痕短裤 蕾丝内裤 吊带背心
+                        男士背心</dd>
+                        <dt>袜    类></dt>   <dd>棉袜 丝袜 男士短袜 日式袜子 隐形船袜 连裤袜 瘦身袜</dd>
+                    </dl>
+                </div>
+                <div class="keyList"><a>男装 /运动户外</a></div>
+                <div class="keyList"><a>女鞋 /男鞋 /箱包</a></div>
+                <div class="keyList"><a>化妆品 /个人护理</a></div>
+                <div class="keyList"><a>腕表 /珠宝饰品 /眼镜</a></div>
+                <div class="keyList"><a>手机 /数码 /电脑办公</a></div>
+                <div class="keyList"><a>母婴玩具</a></div>
+                <div class="keyList"><a>零食 /进口食品 /茶酒</a></div>
+                <div class="keyList"><a>生鲜水果</a></div>
+                <div class="keyList"><a>大家电 /生活电器</a></div>
+                <div class="keyList"><a>家具建材</a></div>
+                <div class="keyList"><a>汽车 /配件 /用品</a></div>
+                <div class="keyList"><a>家纺 /家饰 /鲜花</a></div>
+                <div class="keyList"><a>医药保健</a></div>
+                <div class="keyList"><a>厨具 /收纳 /宠物</a></div>
+                <div class="keyList"><a>图书音像</a></div>
+            </nav>
+        </div>
+        <div style="width: 100px;height: 475px;margin: 10px 1170px;position: absolute;background-color: rgba(0,0,0,.5);color: white">
+            <img src="tmal-img/hjy/usrPhot.jpg" style="border-radius: 100%;width:80px;padding: 10px">
+            <div style="padding: 20px">亲爱的，<div class="name">tb3785098_2011</div>欢迎回来</div>
+            <div style="border-top: dotted black 2px;border-bottom: dotted black 2px;padding: 10px;text-align: center"><a>我的积分</a><div class="point">22</div></div>
+            <div style="text-align: center;padding: 10px"><a>我的优惠券</a><div><span class="point">9</span>张</div></div>
+        </div>
+    </div>
+</div>
+
+<div id="main" style="width: 1230px;position: relative;margin-top: -30px;text-align: center;left: 50%;margin-left: -630px;">
+    <div id="zhinan" style="">
+        <img style="padding: 10px;" src="tmal-img/body/middle8.png">
+        <div class="imgShow imgMove">
+            <img src="tmal-img/hjy/bg4.jpg"><img src="tmal-img/hjy/bg2.jpg"><img src="tmal-img/hjy/bg3.jpg"><img src="tmal-img/hjy/bg1.jpg"><img src="tmal-img/hjy/bg5.jpg">
+        </div>
+    </div>
+    <div id="hotBrands" style="">
+        <img class="titleImg" src="tmal-img/body/middle1.jpg">
+    </div>
+    <div id="GroceryHealth">
+        <img class="titleImg" src="tmal-img/body/middle2.jpg">
+    </div>
+    <div id="kidsBaby" style="">
+        <img class="titleImg" src="tmal-img/body/middle3.jpg">
+        <img src="tmal-img/hjy/hjy6.jpg" style="width: 220px;display: inline;padding: 10px;" class="mov">
+        <img src="tmal-img/hjy/hjy6.jpg" style="width: 220px;display: inline;padding: 10px;" class="mov">
+        <img src="tmal-img/hjy/hjy6.jpg" style="width: 220px;display: inline;padding: 10px;" class="mov">
+        <img src="tmal-img/hjy/hjy6.jpg" style="width: 220px;display: inline;padding: 10px;" class="mov">
+        <img src="tmal-img/hjy/hjy6.jpg" style="width: 220px;display: inline;padding: 10px;" class="mov">
+    </div>
+    <div id="home" style="">
+        <img class="titleImg" src="tmal-img/body/middle4.jpg">
+    </div>
+    <div id="fashionBeauty" style="">
+        <img class="titleImg" src="tmal-img/body/middle5.jpg">
+    </div>
+    <div id="outdoorsOutoMotive" style="">
+        <img class="titleImg" src="tmal-img/body/middle6.jpg">
+    </div>
+    <div id="Electronics" style="">
+        <img class="titleImg" src="tmal-img/body/middle7.jpg">
+    </div>
+    <div id="guessLike" style="">
+        <img class="titleImg" src="tmal-img/body/middle9.jpg">
+        <img src="tmal-img/foot/tmal-end.png" style="bottom:20px;left:45%">
+    </div>
+</div>
+<footer style="width:100%;position: relative">
+    <div style="background-color: white;">
+        <div style="width: 1230px;margin: 0 auto;height: 350px" class="under">
+            <nav>
+                <a href="#"><img src="tmal-img/foot/end-link1.jpg" style="padding: 40px"></a>
+                <a href="#"><img src="tmal-img/foot/end-link2.jpg" style="padding: 40px"></a>
+                <a href="#"><img src="tmal-img/foot/end-link3.jpg" style="padding:40px"></a>
+                <a href="#"><img src="tmal-img/foot/end-link4.jpg" style="padding: 40px"></a>
+            </nav>
+            <hr style="width: 100%;border:1px #9C9C9C solid;margin-bottom: 24px">
+                <dl>
+                    <dt><span>购物指南</span></dt>
+                    <dd><a href="">免费注册</a></dd>
+                    <dd><a href="">开通支付宝</a></dd>
+                    <dd><a href="">支付宝充值</a></dd>
+                </dl>
+                <dl>
+                    <dt><span>天猫保障</span></dt>
+                    <dd><a href="">发票保障</a></dd>
+                    <dd><a href="">售后规则</a></dd>
+                    <dd><a href="">缺货赔付</a></dd>
+                </dl>
+                <dl>
+                    <dt><span>支付方式</span></dt>
+                    <dd><a href="">快捷支付</a></dd>
+                    <dd><a href="">信用卡</a></dd>
+                    <dd><a href="">余额宝</a></dd>
+                    <dd><a href="">蚂蚁花呗</a></dd>
+                    <dd><a href="">货到付款</a></dd>
+                </dl>
+                <dl>
+                    <dt><span>商家服务</span></dt>
+                    <dd><a href="">商家入驻</a></dd>
+                    <dd><a href="">商家中心</a></dd>
+                    <dd><a href="">天猫智库</a></dd>
+                    <dd><a href="">天猫规则</a></dd>
+                    <dd><a href="">物流服务</a></dd>
+                    <dd><a href="">喵言喵语</a></dd>
+                    <dd><a href="">运营服务</a></dd>
+                </dl>
+                <dl>
+                    <dt><span>手机天猫</span></dt>
+                    <dd><a href=""><img src="tmal-img/foot/end-code.png"></a></dd>
+                </dl>
+        </div>
+        <img src="tmal-img/foot/end-logo.png" style="float:left;margin-top:-47px;margin-left:90px;">
+    </div>
+    <div style="background-color: black;border-top:2px #C40000 solid">
+        <div style="width: 1230px;margin: 0 auto;">
+            <div style="color: white;padding: 1em;line-height: 2.5em">
+                <div><a>关于天猫</a> <a>帮助中心</a> <a>开放平台</a> <a>诚聘英才</a> <a>联系我们</a> <a>网站合作</a> <a>法律声明</a> <a>知识产权</a> <a>廉正举报</a> <a>规则意见征集</a></div>
+                <div><a>阿里巴巴集团</a>|<a>淘宝网</a> | <a>天猫</a> | <a>聚划算</a> | <a>全球速卖通</a> | <a>阿里巴巴国际交易市场</a>| <a>1688</a> | <a>阿里妈妈</a> | <a>阿里旅行·去啊</a> | <a>阿里云计算</a> | <a>YunOS</a> | <a>阿里通信</a> | <a>万网</a> | <a>高德</a> | <a>优视</a> | <a>友盟</a> | <a>虾米</a> | <a>天天动听</a> | <a>来往</a> | <a>钉钉</a> | <a>支付宝</a></div>
+            </div>
+            <div  style="font-size: 12px;color: #9C9C9C;line-height:1.7em;padding-left: 10px">
+                <div>
+                    增值电信业务经营许可证： 浙B2-20110446<span style="margin-left: 50px">网络文化经营许可证：浙网文[2015]0295-065号</span><span style="margin-left: 50px">互联网医疗保健信息服务 审核同意书 浙卫网审【2014】6号</span>
+                    <br>
+                    互联网药品信息服务资质证书编号：浙-（经营性）-2012-0005
+                </div>
+                <div>© 2003-2016 TMALL.COM 版权所有</div>
+                <img src="tmal-img/foot/end1.jpg" style="padding:15px 15px 20px 0;"><img src="tmal-img/foot/end2.jpg" style="padding:15px 15px 20px 0;">
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    var url=['hjy/bg-hjy1.jpg','hjy/bg-hjy2.jpg','hjy/bg-hjy3.jpg'];
+    var test = document.getElementsByClassName("bo");
+    var li1=document.getElementById("fir");
+    var li2=document.getElementById("sec");
+    var li3=document.getElementById("third");
+    var len=test.length;
+
+    setInterval(function(){
+        test[1].style.display="block";
+        li2.className+=":hover";
+        test[2].style.display="none";
+        test[0].style.display="none";
+
+    },2000);
+    setInterval(function(){test[1].style.display="none";
+        test[2].style.display="block";
+        li3.className+="selectedd";
+        test[0].style.display="none";
+    },4000);
+    setInterval(function(){test[1].style.display="none";
+        test[2].style.display="none";
+        test[0].style.display="block";
+        li1.className+="selectedd";
+    },6000);
+</script>
+</body>
+</html>
