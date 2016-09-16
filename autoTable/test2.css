@@ -1,0 +1,12 @@
+*{padding: 0;margin: 0;}
+
+.autoTable{width: 100%;text-align: center;font-size: 18px;border-collapse: collapse;}
+
+.autoTable tr td{border: 1px solid;padding: 3px;}
+
+.autoTable tr:nth-of-type(4n+1){background-color: #8dc3bd;}
+.autoTable tr:nth-of-type(4n+2){background-color: #44c3a3;}
+.autoTable tr:nth-of-type(4n+3){background-color: #2da4c3;}
+.autoTable tr:nth-of-type(4n){background-color: #0885c3;}
+
+.autoTable tr:hover{background-color: #ff6ae7;}/*必须写在后面！！！注意覆盖*/
